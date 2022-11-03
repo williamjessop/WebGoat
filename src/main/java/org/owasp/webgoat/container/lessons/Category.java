@@ -52,7 +52,9 @@ public enum Category {
     
     CLIENT_SIDE("Client side", 1700),
 
-    CHALLENGE("Challenges", 3000);
+    CHALLENGE("Challenges", 3000),
+    
+    CUSTOM("Custom", 3001);
 
     @Getter
     private String name;
