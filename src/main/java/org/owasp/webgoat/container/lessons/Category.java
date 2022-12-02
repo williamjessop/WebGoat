@@ -54,7 +54,7 @@ public enum Category {
 
     CHALLENGE("Challenges", 3000),
     
-    CUSTOM("Custom", 3001);
+    LOG4SHELL("Log4shell", 3001);
 
     @Getter
     private String name;

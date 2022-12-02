@@ -1,18 +1,18 @@
-package org.owasp.webgoat.lessons.custom;
+package org.owasp.webgoat.lessons.log4shell;
 
 import org.owasp.webgoat.container.lessons.Category;
 import org.owasp.webgoat.container.lessons.Lesson;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Custom extends Lesson {
+public class Log4shell extends Lesson {
  @Override
     public Category getDefaultCategory() {
-        return Category.CUSTOM;
+        return Category.LOG4SHELL;
     }
 
     @Override
     public String getTitle() {
-        return "custom.title";
+        return "log4shell.title";
     }
 }

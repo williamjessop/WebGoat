@@ -1,13 +1,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
   <div class="lesson-page-wrapper">
-    <div class="adoc-content" th:replace="doc:lessons/custom/documentation/custom.adoc"></div>
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/page1.adoc"></div>
   </div>
   <div class="lesson-page-wrapper">
     <!-- reuse the above lesson-page-wrapper block for each 'page' of content in your lesson -->
     <!-- include content here, or can be placed in another location. Content will be presented via asciidocs files,
     which you put in src/main/resources/plugin/lessonplans/{lang}/{fileName}.adoc -->
-    <div class="adoc-content" th:replace="doc:lessons/custom/documentation/custom-assignment1.adoc"></div>
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/assignment1.adoc"></div>
 
     <!-- WebGoat will automatically style and scaffold some functionality by using the div.attack-container as below -->
     <div class="attack-container">
@@ -19,7 +19,7 @@
         <!-- modify the action to point to the intended endpoint and set other attributes as desired -->
         <form class="attack-form" accept-charset="UNKNOWN"
               method="POST" name="form"
-              action="/WebGoat/custom/assignment1">
+              action="/WebGoat/log4shell/assignment1">
             <table>
                 <tr>
                     <td>two random params</td>

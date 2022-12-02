@@ -9,6 +9,9 @@ How to do an image:
 image::images/test.jpg[A good dancer,1397,645,style="lesson-image"]
 
 
+
+some actual contnet
+
 === The Scenario
 
 ...

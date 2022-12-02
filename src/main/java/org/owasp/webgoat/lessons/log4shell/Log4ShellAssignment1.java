@@ -1,4 +1,4 @@
-package org.owasp.webgoat.lessons.custom;
+package org.owasp.webgoat.lessons.log4shell;
 
 import org.owasp.webgoat.container.assignments.AssignmentEndpoint;
 import org.owasp.webgoat.container.assignments.AttackResult;
@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 
 @RestController 
 // @AssignmentHints({"lesson-template.hints.1", "lesson-template.hints.2", "lesson-template.hints.3"}) 
-public class Custom123 extends AssignmentEndpoint { 
+public class Log4ShellAssignment1 extends AssignmentEndpoint { 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
     private final String secretValue = "secr37Value";
@@ -30,12 +30,12 @@ public class Custom123 extends AssignmentEndpoint {
     private UserSessionData userSessionData; 
 
     // Attempt for http lesson validation
-    // @GetMapping("/custom/log4shell1")
+    // @GetMapping("/log4shell/log4shell1")
     // public void setComplete(){
     //     solved = true;
     // }
 
-    @PostMapping("/custom/assignment1") 
+    @PostMapping("/log4shell/assignment1") 
     @ResponseBody
     public AttackResult completed(@RequestParam("param1") String param1, @RequestParam("param2") String param2) { 
         try{
@@ -77,7 +77,7 @@ public class Custom123 extends AssignmentEndpoint {
         if (tempFile.exists()) {
             return success(this) 
                     .output("I did it")
-                    .feedback("custom.assignment1.success")
+                    .feedback("log4shell.assignment1.success")
                     .build();
             //lesson-template.sample-attack.success is defined in src/main/resources/i18n/WebGoatLabels.properties
         }
@@ -86,7 +86,7 @@ public class Custom123 extends AssignmentEndpoint {
 
         // else
         return failed(this) 
-                .feedback("custom.assignment1.fail")
+                .feedback("log4shell.assignment1.fail")
                 .output("I failed but did it")
                 .build();
     }
