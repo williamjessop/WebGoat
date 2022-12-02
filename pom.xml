@@ -115,7 +115,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <java.version>17</java.version>
-        <webgoat.port>8080</webgoat.port>
+        <webgoat.port>8090</webgoat.port>
         <webwolf.port>9090</webwolf.port>
 
         <!-- Shared properties with plugins and version numbers across submodules-->
