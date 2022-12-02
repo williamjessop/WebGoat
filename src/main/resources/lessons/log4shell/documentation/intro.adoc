@@ -1,0 +1,9 @@
+=== Concept
+
+This lesson describes and walks through the log4j vulnerability in detail.
+
+=== Goals
+- Understand the log4j vulnerability
+- Understand the impact of log4j
+- Learn how to exploit log4j
+- Learn how to open a reverse shell with the log4j vulnerability

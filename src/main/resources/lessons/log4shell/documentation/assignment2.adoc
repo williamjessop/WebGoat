@@ -1,0 +1,9 @@
+== Exploiting log4j
+
+This assignment is mean to simulate a simple login page. Sometimes the form fields themselves are not vulnerable but the website is still vulnerable to a log4j attack.
+
+
+TODO: Add more lesson info
+
+
+Basic idea, have just a submit button and log the user-agent instead

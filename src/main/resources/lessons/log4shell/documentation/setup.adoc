@@ -1,0 +1,10 @@
+== Setting up the Vulnerable Server
+
+To explore exploiting the log4j vulnerability you need to setup a vulnerable server.
+
+Note: To download the JDK you will need an Oracle account
+
+1. Clone or download this repo: https://github.com/williamjessop/log4j-shell-proof-of-concept
+2. Download this java JDK: https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html#:~:text=8u20%2Dlinux%2Dx64.rpm-,Linux%20x64,jdk%2D8u20%2Dlinux%2Dx64.tar.gz,-Mac%20OS%20X%20x64 
+3. Extract the JDK into the root of the downloaded repo: `tar -xf jdk-8u20-linux-x64.tar.gz`
+4. Run the start script: `./run.sh` (Note: You may need to `sudo chmod +x run.sh`)

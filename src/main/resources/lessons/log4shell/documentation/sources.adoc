@@ -1,0 +1,23 @@
+== Sources and Further Reading
+
+=== Code basis
+This project was forked from WebGoat which can be found here: https://github.com/WebGoat/WebGoat
+
+A lot of the code required to make this project possible was forked from a github user named Kozmer, the full repo can be found here:
+
+https://github.com/kozmer/log4j-shell-poc
+
+There was also some inspiration taken from a fork of this repo from Cyberxml: https://github.com/cyberxml/log4j-poc
+
+
+=== Other Sources
+Below are the sources I used for the rest of the lesson content.
+
+Log4J CVE: https://nvd.nist.gov/vuln/detail/CVE-2021-44228 
+
+Exploit breakdown: https://www.lunasec.io/docs/blog/log4j-zero-day/ 
+
+More on JNDI, LDAP, and other vectors:
+https://www.blackhat.com/docs/us-16/materials/us-16-Munoz-A-Journey-From-JNDI-LDAP-Manipulation-To-RCE.pdf 
+
+More on the exploit: https://www.shiftleft.io/blog/log4shell-jndi-injection-via-attackable-log4j/

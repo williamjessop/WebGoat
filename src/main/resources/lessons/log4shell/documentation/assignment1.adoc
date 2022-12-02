@@ -1,8 +1,9 @@
+== Exploiting log4j
 
-== My Assignment content
+This assignment is mean to simulate a simple login page. This login page is vulnerable to the log4j exploit.
 
-this is kinda like markdown
+Note: For this assignment to work properly you must be running the code from this repository https://github.com/williamjessop/log4j-shell-proof-of-concept
 
-=== The Scenario
+Please see the previous page for more setup help.
 
-...
+TODO: Add more lesson info
