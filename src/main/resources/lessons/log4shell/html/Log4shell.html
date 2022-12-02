@@ -3,16 +3,21 @@
   <div class="lesson-page-wrapper">
     <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/intro.adoc"></div>
   </div>
+
   <div class="lesson-page-wrapper">
-    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/page1.adoc"></div>
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/history.adoc"></div>
+  </div>
+
+  <div class="lesson-page-wrapper">
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/exploitDescription.adoc"></div>
   </div>
 
   <div class="lesson-page-wrapper">
     <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/setup.adoc"></div>
   </div>
+
   <div class="lesson-page-wrapper">
     <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/assignment1.adoc"></div>
-
     <div class="attack-container">
         <div class="assignment-success"><i class="fa fa-2 fa-check hidden" aria-hidden="true"></i></div>
         <form class="attack-form" accept-charset="UNKNOWN"
@@ -28,5 +33,39 @@
         <div class="attack-feedback"></div>
         <div class="attack-output"></div>
     </div>
-</div>
+  </div>
+
+  <div class="lesson-page-wrapper">
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/assignment2.adoc"></div>
+    <div class="attack-container">
+        <div class="assignment-success"><i class="fa fa-2 fa-check hidden" aria-hidden="true"></i></div>
+        <form class="attack-form" accept-charset="UNKNOWN"
+              method="POST" name="form"
+              action="/WebGoat/log4shell/assignment2">
+            <table>
+                  <tr><td><input name="submit" value="Submit" type="SUBMIT"/></td></tr>
+            </table>
+        </form>
+
+        <div class="attack-feedback"></div>
+        <div class="attack-output"></div>
+    </div>
+  </div>
+
+  <div class="lesson-page-wrapper">
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/severity.adoc"></div>
+  </div>
+
+  <div class="lesson-page-wrapper">
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/exploits.adoc"></div>
+  </div>
+
+  <div class="lesson-page-wrapper">
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/conclusion.adoc"></div>
+  </div>
+
+  <div class="lesson-page-wrapper">
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/sources.adoc"></div>
+  </div>
+
 </html>

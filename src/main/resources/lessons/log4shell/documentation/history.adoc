@@ -1,0 +1,16 @@
+== History of log4j
+
+=== What is log4j
+
+Log4j is a very popular logging utility which has been used in many applications across the world. 
+
+There was a flaw discovered in this package that allows for remote code execution. This flaw was discovered in Minecraft.
+
+image::images/mc.png[The Minecraft Logo,100,100,style="lesson-image"]
+
+
+Once this flaw was discovered there was a frantic rush to fix it because it is easy to execute an can have massive impact. 
+
+The vulnerability was given a CVE base score of 10 Critical.
+
+CVE: https://nvd.nist.gov/vuln/detail/CVE-2021-44228

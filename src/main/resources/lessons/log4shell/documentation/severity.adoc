@@ -1,0 +1,5 @@
+== Impacts of log4j
+
+What made log4j so dangerous?
+
+What happened as a result?

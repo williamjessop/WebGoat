@@ -3,12 +3,13 @@ package org.owasp.webgoat.lessons.log4shell;
 import org.owasp.webgoat.container.assignments.AssignmentEndpoint;
 import org.owasp.webgoat.container.assignments.AttackResult;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.owasp.webgoat.container.session.UserSessionData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.owasp.webgoat.container.assignments.AssignmentHints;
+import org.springframework.http.HttpHeaders;
 import java.net.*;
 import java.io.*;
 import java.util.StringJoiner;
@@ -21,15 +22,15 @@ import java.util.concurrent.TimeUnit;
 
 @RestController 
 @AssignmentHints({"log4shell.assignment1.hints.1", "log4shell.assignment1.hints.2", "log4shell.assignment1.hints.3"}) 
-public class Log4ShellAssignment1 extends AssignmentEndpoint { 
+public class Log4ShellAssignment2 extends AssignmentEndpoint { 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
     @Autowired
     private UserSessionData userSessionData; 
 
-    @PostMapping("/log4shell/assignment1") 
+    @PostMapping("/log4shell/assignment2") 
     @ResponseBody
-    public AttackResult completed(@RequestParam("param1") String param1, @RequestParam("param2") String param2) { 
+    public AttackResult completed(@RequestHeader(HttpHeaders.USER_AGENT) String userAgent) { 
         try{
             URL url = new URL("http://localhost:8080/login");
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -38,8 +39,8 @@ public class Log4ShellAssignment1 extends AssignmentEndpoint {
 
             // Setup POST params
             Map<String,String> arguments = new HashMap<>();
-            arguments.put("uname", param1);
-            arguments.put("password", param2);
+            arguments.put("uname", userAgent); // Passing in the userAgent to the target server without needing to modify target
+            arguments.put("password", "TEST");
             StringJoiner sj = new StringJoiner("&");
             for(Map.Entry<String,String> entry : arguments.entrySet())
                 sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
@@ -50,11 +51,12 @@ public class Log4ShellAssignment1 extends AssignmentEndpoint {
             // Send URL encoded form
             con.setFixedLengthStreamingMode(length);
             con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+            // This would be the better way
+            // con.setRequestProperty("User-Agent", userAgent);
             con.connect();
             try(OutputStream os = con.getOutputStream()) {
                 os.write(out);
             }
-            log.info("SENT FORM TO SERVER WITH " + param1);
 
             TimeUnit.SECONDS.sleep(2);
 
@@ -65,13 +67,13 @@ public class Log4ShellAssignment1 extends AssignmentEndpoint {
         File tempFile = new File("/tmp/log4j-docker/filename.txt");
         if (tempFile.exists()) {
             return success(this) 
-                    .output("The server has been exploited.")
-                    .feedback("log4shell.assignment1.success")
+                    .output("The server has been exploited")
+                    .feedback("log4shell.assignment2.success")
                     .build();
         }
 
         return failed(this) 
-                .feedback("log4shell.assignment1.fail")
+                .feedback("log4shell.assignment2.fail")
                 .output("That is not correct, we will be logging this attempt.")
                 .build();
     }
