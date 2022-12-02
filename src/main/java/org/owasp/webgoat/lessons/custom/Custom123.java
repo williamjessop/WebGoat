@@ -11,10 +11,18 @@ import org.owasp.webgoat.container.session.UserSessionData;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.net.*;
 import java.io.*;
+import java.util.StringJoiner;
+import java.util.HashMap;
+import java.util.Map;
+import java.nio.charset.StandardCharsets;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.util.concurrent.TimeUnit;
 
 @RestController 
 // @AssignmentHints({"lesson-template.hints.1", "lesson-template.hints.2", "lesson-template.hints.3"}) 
 public class Custom123 extends AssignmentEndpoint { 
+    Logger log = LoggerFactory.getLogger(this.getClass().getName());
 
     private final String secretValue = "secr37Value";
 
@@ -30,10 +38,39 @@ public class Custom123 extends AssignmentEndpoint {
     @PostMapping("/custom/assignment1") 
     @ResponseBody
     public AttackResult completed(@RequestParam("param1") String param1, @RequestParam("param2") String param2) { 
-        if (userSessionData.getValue("some-value") != null) {
-            // do any session updating you want here ... or not, just comment/example here
-            //return failed(this).feedback("lesson-template.sample-attack.failure-2").build();
+        try{
+            URL url = new URL("http://localhost:8080/login");
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+            con.setRequestMethod("POST");
+            con.setDoOutput(true);
+
+            // Setup POST params
+            Map<String,String> arguments = new HashMap<>();
+            arguments.put("uname", param1);
+            arguments.put("password", param2);
+            StringJoiner sj = new StringJoiner("&");
+            for(Map.Entry<String,String> entry : arguments.entrySet())
+                sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "=" 
+                    + URLEncoder.encode(entry.getValue(), "UTF-8"));
+            byte[] out = sj.toString().getBytes(StandardCharsets.UTF_8);
+            int length = out.length;
+
+            // Send URL encoded form
+            con.setFixedLengthStreamingMode(length);
+            con.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+            con.connect();
+            try(OutputStream os = con.getOutputStream()) {
+                os.write(out);
+            }
+            log.info("SENT FORM TO SERVER WITH " + param1);
+
+            TimeUnit.SECONDS.sleep(2);
+
+        }catch(Exception e){
+            log.info("TRIED TO SEND AND FAILED");
         }
+
+        
 
         //overly simple example for success. See other existing lessons for ways to detect 'success' or 'failure'
         File tempFile = new File("/tmp/log4j-docker/filename.txt");
@@ -45,13 +82,7 @@ public class Custom123 extends AssignmentEndpoint {
             //lesson-template.sample-attack.success is defined in src/main/resources/i18n/WebGoatLabels.properties
         }
 
-        try{
-            URL url = new URL("http://example.com");
-            HttpURLConnection con = (HttpURLConnection) url.openConnection();
-            con.setRequestMethod("GET");
-        }catch(Exception e){
-            // system.out.print("we died");
-        }
+
 
         // else
         return failed(this) 
