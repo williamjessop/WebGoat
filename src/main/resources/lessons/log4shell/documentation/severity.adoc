@@ -3,3 +3,17 @@
 What made log4j so dangerous?
 
 What happened as a result?
+
+
+=== Mitigation
+
+To mitigate the log4j vulnerability it is advised to update Java versions and log4j packages. In more recent versions JNDI calls are no longer enabled by default. Also in newer versions of Java the vulnerability is mitigated.
+
+=== The Larger Lesson
+
+The log4j vulnerability is a lesson in two main ways.
+
+1. Packages should have specific well defined uses
+2. Users should always be wary of installed packages
+
+The log4j vulnerability is an example of 
