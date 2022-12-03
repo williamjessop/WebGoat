@@ -1,8 +1,8 @@
 == Impacts of log4j
 
-What made log4j so dangerous?
+The log4j vulnerability was very dangerous because it was so easy to execute. This led to the vulnerability being widely exploited. This vulnerability was also particularly bad because it was so widespread. The scope of the issue was massive, and it took time for tools to be developed to find and fix the issue.
 
-What happened as a result?
+image::images/script_kiddie.jpg[A script Kiddie,512,268,style="lesson-image"]
 
 
 === Mitigation
@@ -16,4 +16,4 @@ The log4j vulnerability is a lesson in two main ways.
 1. Packages should have specific well defined uses
 2. Users should always be wary of installed packages
 
-The log4j vulnerability is an example of 
+The log4j vulnerability is an example of why it can be dangerous to trust outside packages. log4j was a very easy package to install and while it was useful it was also hiding a large security flaw. It is worth finding packages that only do small jobs, this helps ensure packages are less likely to have security holes. It is also important to use automated tools and manual review of packages you download to make sure your application stays protected.
