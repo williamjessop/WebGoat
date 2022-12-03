@@ -1,0 +1,3 @@
+== Log4shell
+
+In this assignment you will use a different Java payload to open a reverse shell.

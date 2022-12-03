@@ -53,11 +53,37 @@
   </div>
 
   <div class="lesson-page-wrapper">
-    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/severity.adoc"></div>
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/exploits.adoc"></div>
   </div>
 
   <div class="lesson-page-wrapper">
-    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/exploits.adoc"></div>
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/assignment3.adoc"></div>
+    <div class="attack-container">
+        <div class="assignment-success"><i class="fa fa-2 fa-check hidden" aria-hidden="true"></i></div>
+        <form class="form" accept-charset="UNKNOWN"
+              method="POST" name="form"
+              action="/WebGoat/log4shell/assignment3/send">
+            <table>
+                  <tr><td><input name="submit" value="Submit" type="SUBMIT"/></td></tr>
+            </table>
+        </form>
+
+        <form class="attack-form" accept-charset="UNKNOWN"
+          method="POST" name="form"
+          action="/WebGoat/log4shell/assignment3/solve">
+        <table>
+              <tr><td>Username<input name="param1" value="" type="TEXT" /></td></tr>
+              <tr><td><input name="submit" value="Submit" type="SUBMIT"/></td></tr>
+        </table>
+  </form>
+
+        <div class="attack-feedback"></div>
+        <div class="attack-output"></div>
+    </div>
+  </div>
+
+  <div class="lesson-page-wrapper">
+    <div class="adoc-content" th:replace="doc:lessons/log4shell/documentation/severity.adoc"></div>
   </div>
 
   <div class="lesson-page-wrapper">
