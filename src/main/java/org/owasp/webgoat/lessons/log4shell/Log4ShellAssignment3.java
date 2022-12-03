@@ -59,10 +59,10 @@ public class Log4ShellAssignment3 extends AssignmentEndpoint {
         }
     }
 
-    @PostMapping(path = "/log4shell/assignment3/solve", produces = "application/json")
+    @PostMapping("/log4shell/assignment3")
     @ResponseBody
-    public AttackResult flag(@RequestParam("param1") String flag) {
-        if (flag.equals("The super secret value")) {
+    public AttackResult completed(@RequestParam("param1") String flag) {
+        if (flag.equals("LICENSE")) {
             return success(this)                    
                 .output("The server has been exploited")
                 .feedback("log4shell.assignment3.success")
