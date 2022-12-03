@@ -19,13 +19,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.concurrent.TimeUnit;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.attribute.BasicFileAttributes;
-
-import java.sql.Timestamp;
-
 
 @RestController 
 @AssignmentHints({"log4shell.assignment1.hints.1", "log4shell.assignment1.hints.2", "log4shell.assignment1.hints.3"}) 
@@ -74,16 +67,10 @@ public class Log4ShellAssignment1 extends AssignmentEndpoint {
 
         File tempFile = new File(fileName);
         if (tempFile.exists()) {
-            Path file = Paths.get(fileName);
-            try{
-                BasicFileAttributes attr = Files.readAttributes(file, BasicFileAttributes.class);
-                if(attr.creationTime().toMillis() - System.currentTimeMillis() < 5000){ // Test that file was made in the last 5 seconds
-                    return success(this) 
-                        .output("The server has been exploited.")
-                        .feedback("log4shell.assignment1.success")
-                        .build();
-                }
-            }catch(Exception e){}
+            return success(this) 
+                .output("The server has been exploited.")
+                .feedback("log4shell.assignment1.success")
+                .build();
         }
 
         return failed(this) 
